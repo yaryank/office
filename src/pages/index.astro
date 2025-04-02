@@ -1,49 +1,345 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Layout from '../layouts/Layout.astro';
+import * as Lucide from 'lucide-astro';
+const title = "Office Health Guide – Protecting Your Health in a Sedentary World";
+const description = "A comprehensive guide for office workers and IT professionals to prevent and manage sedentary-related health issues.";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout {title} {description}>
+    <!-- NAVIGATION -->
+    <header class="fixed top-2 left-1/2 transform -translate-x-1/2 w-[80%] max-w-4xl z-50 py-3 px-3 bg-white/80 backdrop-blur-md shadow-md rounded-2xl">
+        <div class="mx-auto flex flex-col md:flex-row items-center justify-between gap-4 relative">
+          <div class="text-xl font-semibold text-gray-900">OH<span class="font-semibold text-amber-700">.guide</span></div>
+          <nav class="absolute left-1/2 transform -translate-x-1/2 flex gap-2 text-base text-gray-700 font-medium items-center">
+            <a href="#about" class="px-3 py-1 rounded-md hover:bg-orange-100 transition">About</a>
+            <a href="#inside" class="px-3 py-1 rounded-md hover:bg-orange-100 transition">What's inside</a>
+            <a href="#learn" class="px-3 py-1 rounded-md hover:bg-orange-100 transition">Blog</a>
+            <a href="#testimonials" class="px-3 py-1 rounded-md hover:bg-orange-100 transition">FAQ</a>
+          </nav>
+          <a href="#" class="bg-transparent text-amber-700 font-semibold py-2 px-4 rounded-xl border border-amber-700 hover:bg-amber-800 hover:text-white transition text-sm">Get the guide</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden flex items-center bg-gradient-to-b from-orange-50 to-white pt-40 pb-20">
+      <div class="absolute inset-0 -z-10 opacity-30 bg-[url('/grid.svg')] bg-repeat"></div>
+      <div class="container mx-auto px-6 max-w-4xl text-center">
+        <h1 class="text-6xl md:text-7xl font-semibold leading-tight text-gray-900 mb-6">
+            Office health guide
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-xl mx-auto">
+            A comprehensive guide for office workers and IT professionals to prevent and manage sedentary-related health issues
+        </p>
+        <button id="cta-btn" class="mt-6 bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-6 rounded-xl text-lg shadow-md transition"><img src="/book-icon.png" alt="Book Icon" class="inline-block w-5 h-5 mr-2 align-text-bottom">Get the health guide</button>
+  
+        <!-- Portraits and Social Proof -->
+        <div class="flex justify-center items-center mt-6">
+            <img src="/placeholder-user1.jpg" class="w-9 h-9 rounded-full border-2 border-white shadow z-0" alt="User 1">
+            <img src="/placeholder-user2.jpg" class="w-9 h-9 rounded-full border-2 border-white shadow -ml-3 z-10" alt="User 2">
+            <img src="/placeholder-user3.jpg" class="w-9 h-9 rounded-full border-2 border-white shadow -ml-3 z-20" alt="User 3">
+            <span class="text-sm text-gray-500 font-medium ml-2">Trusted by over 500 office workers</span>
+          </div>
+          <img src="/office-health-guide.png" alt="Office Health Guide Book" class="mx-auto mt-8 max-w-sm">
+        </div>
+
+    </section>
+  
+    <!-- IMPORTANCE SECTION -->
+    <section class="pt-16 pb-4 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl text-center">
+        <h2 class="text-4xl font-bold mb-6">Why you should care</h2>
+        <p class="text-gray-700 text-lg">According to the World Health Organization (WHO), physical inactivity is responsible for approximately <span class="font-semibold text-amber-700">3.2 million</span> deaths annually, making it one of the leading risk factors for global mortality. Sedentary lifestyles are closely linked to the rise in non-communicable diseases such as heart disease, diabetes, certain cancers and more:</p>
+      </div>
+    </section>
+
+    <!-- ISSUES SECTION -->
+    <section class="pt-4 pb-8 bg-white">
+        <!-- Match container width and center -->
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 relative">
+        <div class="relative overflow-hidden">
+            <!-- Fade mask -->
+            <div class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <!-- Marquee content -->
+            <div class="whitespace-nowrap animate-marquee text-gray-800 text-sm font-medium tracking-wide">
+              <span class="inline-block px-3">Back Pain</span>
+              <span class="inline-block px-3">Neck Tension</span>
+              <span class="inline-block px-3">Wrist Strain</span>
+              <span class="inline-block px-3">Eye Fatigue</span>
+              <span class="inline-block px-3">Mental Fog</span>
+              <span class="inline-block px-3">Poor Circulation</span>
+              <span class="inline-block px-3">Sedentary Stress</span>
+              <span class="inline-block px-3">Hip Tightness</span>
+              <span class="inline-block px-3">Screen Overload</span>
+              <span class="inline-block px-3">Back Pain</span>
+              <span class="inline-block px-3">Neck Tension</span>
+              <span class="inline-block px-3">Wrist Strain</span>
+              <span class="inline-block px-3">Eye Fatigue</span>
+              <span class="inline-block px-3">Mental Fog</span>
+              <span class="inline-block px-3">Poor Circulation</span>
+              <span class="inline-block px-3">Sedentary Stress</span>
+              <span class="inline-block px-3">Hip Tightness</span>
+              <span class="inline-block px-3">Screen Overload</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+  <!-- TARGET AUDIENCE -->
+  <section class="py-16 bg-white">
+    <div class="rounded-xl px-8 py-12 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div class="text-center lg:text-left max-w-xl">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Who This Guide is For</h2>
+        <p class="text-gray-600 text-lg mb-8">Whether you're typing away in spreadsheets, designing user interfaces, or managing office operations, this guide is designed to help you stay healthy, focused, and energized throughout the workday.</p>
+        <a href="#" class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-6 rounded-xl text-sm shadow transition">Get the Free Guide</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 items-center">
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Code class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Developer</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Pencil class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Designer</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Megaphone class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Marketer</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Calculator class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Accountant</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Briefcase class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Manager</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Headphones class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Support</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.BookOpen class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Teacher</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.Gavel class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Lawyer</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 border rounded-lg">
+          <Lucide.BarChart class="w-6 h-6 text-amber-700" />
+          <span class="text-sm text-gray-700 font-medium">Analyst</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK SLIDER -->
+  <section class="py-16 bg-gray-50/75">
+    <div class="max-w-xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-4">How risky is your desk time?</h2>
+      <p class="text-gray-600 mb-8">Slide to see how your daily sitting hours may affect your health.</p>
+  
+      <!-- SLIDER -->
+      <input id="risk-slider" type="range" min="0" max="12" step="1"
+             class="w-full accent-amber-700 cursor-pointer" />
+  
+      <!-- RISK RESULT -->
+      <div id="risk-output" class="mt-6 p-6 rounded-xl border border-gray-200 bg-white shadow-sm transition-all">
+        <h3 class="text-xl font-semibold text-amber-700" id="risk-title">Select hours</h3>
+        <p class="text-sm text-gray-600 mt-2" id="risk-desc">Use the slider above to view health risk information.</p>
+      </div>
+    </div>
+  
+    <script type="module">
+      const riskLevels = {
+        0: { title: "Very low risk", desc: "You're moving a lot — keep it up!", score: 1 },
+        1: { title: "Low risk", desc: "Still healthy, but take small breaks.", score: 2 },
+        2: { title: "Moderate risk", desc: "Be sure to stand and stretch every hour.", score: 3 },
+        3: { title: "Moderate risk", desc: "Start incorporating movement breaks.", score: 4 },
+        4: { title: "Elevated risk", desc: "Posture checks and stretching needed.", score: 5 },
+        5: { title: "High risk", desc: "Prolonged sitting starts impacting health.", score: 6 },
+        6: { title: "High risk", desc: "Time to rethink your desk habits.", score: 7 },
+        7: { title: "Very high risk", desc: "Significant strain on body and circulation.", score: 8 },
+        8: { title: "Very high risk", desc: "Consider using standing desk or breaks every 30 min.", score: 9 },
+        9: { title: "Severe risk", desc: "Increased risk of chronic conditions.", score: 10 },
+        10: { title: "Severe risk", desc: "Time to take urgent health action.", score: 11 },
+        11: { title: "Critical risk", desc: "Risk of cardiovascular & metabolic disease.", score: 12 },
+        12: { title: "Critical risk", desc: "Immediate action required. Seek guidance.", score: 13 }
+      };
+  
+      const slider = document.getElementById("risk-slider");
+      const title = document.getElementById("risk-title");
+      const desc = document.getElementById("risk-desc");
+  
+      slider.addEventListener("input", () => {
+        const val = slider.value;
+        const risk = riskLevels[val] || { title: "Unknown", desc: "N/A" };
+        title.textContent = `${val}+ Hours — ${risk.title}`;
+        desc.textContent = risk.desc;
+      });
+    </script>
+  </section>  
+
+  <!-- HOW IT CAN HELP -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-16">
+        How this guide can change the way you work
+      </h2>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 gap-4 auto-rows-fr">
+        
+        <!-- 1st Column – Top (2 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 bg-orange-50/50 lg:row-span-2 lg:col-start-1 lg:row-start-1">
+          <h3 class="text-xl font-semibold text-gray-800">Daily Habits</h3>
+          <p class="mt-2 text-gray-600">Incorporate small changes to stay active throughout the day.</p>
+        </div>
+  
+        <!-- 2nd Column – Top (3 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 flex flex-col justify-between bg-orange-50/50 lg:row-span-3 lg:col-start-2 lg:row-start-1">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">Energy Boost</h3>
+            <p class="mt-2 text-gray-600">Feel more alert and focused throughout the workday.</p>
+          </div>
+          <img src="/desk.png" alt="Energy Boost" class="w-20 self-end">
+        </div>
+  
+        <!-- 3rd Column – Top (4 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 flex flex-col justify-between bg-orange-50/50 lg:row-span-4 lg:col-start-3 lg:row-start-1">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">Long-Term Health</h3>
+            <p class="mt-2 text-gray-600">Prevent chronic issues like heart disease and diabetes.</p>
+          </div>
+          <img src="/exercise.png" alt="Long-Term Health" class="w-40 self-end">
+        </div>
+  
+        <!-- 1st Column – Bottom (4 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 flex flex-col justify-between bg-orange-50/50 lg:row-span-4 lg:col-start-1 lg:row-start-3">
+          <img src="/sedentary.png" alt="Pain Relief" class="w-40 self-end">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">Pain Relief</h3>
+            <p class="mt-2 text-gray-600">Reduce back, neck, and wrist pain with simple ergonomic tweaks.</p>
+          </div>
+        </div>
+  
+        <!-- 2nd Column – Bottom (3 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 flex flex-col justify-between bg-orange-50/50 lg:row-span-3 lg:col-start-2 lg:row-start-4">
+          <img src="/checklist.png" alt="Screen Fatigue" class="w-20 self-end">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800">Screen Fatigue</h3>
+            <p class="mt-2 text-gray-600">Learn tips to reduce eye strain and screen overload.</p>
+          </div>
+        </div>
+  
+        <!-- 3rd Column – Bottom (2 rows) -->
+        <div class="border border-gray-200 bg-white rounded-xl shadow-sm p-8 bg-orange-50/50 lg:row-span-2 lg:col-start-3 lg:row-start-5 flex flex-col justify-end h-full">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">Micro-Movements</h3>
+              <p class="mt-2 text-gray-600">Add quick desk stretches to your routine to relieve muscle tension.</p>
+            </div>
+          </div>
+          
+  
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- WHAT YOU WILL LEARN -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-4xl font-bold mb-6">What You'll Learn</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div>✔️ How to set up a healthy workspace</div>
+        <div>✔️ Daily movement and stretching routines</div>
+        <div>✔️ How to manage screen fatigue</div>
+        <div>✔️ Tips to improve mental clarity and reduce stress</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW INTERACTIVE -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-4xl font-bold text-center mb-8">What's Inside</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <ul id="preview-tabs" class="space-y-4 text-lg">
+            <li class="cursor-pointer text-blue-600 font-semibold" onclick="changePreview('1')">🪑 Ergonomic Setup Guide</li>
+            <li class="cursor-pointer" onclick="changePreview('2')">🧘 Stretching at Your Desk</li>
+            <li class="cursor-pointer" onclick="changePreview('3')">🍎 Nutrition Tips for Office Workers</li>
+          </ul>
+        </div>
+        <div>
+          <img id="preview-img" src="/preview1.jpg" class="rounded-lg shadow-lg" alt="Preview Page">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-5xl text-center">
+      <h2 class="text-4xl font-bold mb-6">What Readers Are Saying</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-lg shadow text-left">“Super helpful tips I started using right away!” – Alex T.</div>
+        <div class="p-6 bg-white rounded-lg shadow text-left">“I shared it with my whole team.” – Jamie R.</div>
+        <div class="p-6 bg-white rounded-lg shadow text-left">“Loved the structure and practical approach.” – Morgan S.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CTA -->
+  <section class="py-20 bg-blue-600 text-white text-center">
+    <div class="container mx-auto px-4 max-w-xl">
+      <h2 class="text-4xl font-bold mb-4">Start Taking Care of Your Health Today</h2>
+      <p class="mb-6">Get the free guide and start your journey to a healthier work life.</p>
+      <button class="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-amber-100 transition">Get the Free Guide</button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-6">FAQ</h2>
+      <details class="mb-4">
+        <summary class="font-semibold cursor-pointer">When will the guide be ready?</summary>
+        <p class="mt-2 text-gray-600">We’re finishing up the final edits and expect to release it soon. Sign up to be the first to know!</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold cursor-pointer">Will I get spammed?</summary>
+        <p class="mt-2 text-gray-600">No way. You’ll only hear from us when we have something truly useful to share.</p>
+      </details>
+      <details>
+        <summary class="font-semibold cursor-pointer">Is this really free?</summary>
+        <p class="mt-2 text-gray-600">Yes. Just drop your email and it’s yours.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-gray-50 text-center text-base text-gray-500">
+    <div>© 2025 Office Health Guide. All rights reserved.</div>
+  </footer>
+
+  <script>
+    let clickCount = 0;
+    const ctaButton = document.getElementById("cta-btn");
+    if (ctaButton) {
+      ctaButton.addEventListener("click", () => {
+        clickCount++;
+        console.log(`CTA clicked ${clickCount} times`);
+      });
+    }
+
+    function changePreview(tab) {
+      const img = document.getElementById("preview-img");
+      if (img) {
+        img.src = `/preview${tab}.jpg`;
+      }
+    }
+  </script>
+</Layout>
